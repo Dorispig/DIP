@@ -1,7 +1,7 @@
 # 默认忽略的文件
 /shelf/
 /workspace.xml
-/report/
+../homework/*/report/
 
 
 #不忽略的文件

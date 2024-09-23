@@ -20,31 +20,18 @@ def apply_transform(image, scale, rotation, translation_x, translation_y, flip_h
 
     ### FILL: Apply Composition Transform 
     # Note: for scale and rotation, implement them around the center of the image （围绕图像中心进行放缩和旋转）
-    # 获取图像尺寸
+    # get shape
     h, w = image.shape[:2]
-
-    # 计算缩放后的图像尺寸
-    new_h, new_w = int(h * scale), int(w * scale)
-
-    # 缩放图像
-    scaled_image = cv2.resize(image, (new_w, new_h), interpolation=cv2.INTER_AREA)
-    # 计算图像中心
-    center = (new_w // 2, new_h // 2)
-    # 旋转图像
-
-    M_rotate= cv2.getRotationMatrix2D(center, rotation, scale)
-    rotated_image = cv2.warpAffine(scaled_image, M_rotate, (new_w, new_h))
-
-    # 平移图像
-    M = np.float32([[1, 0, translation_x], [0, 1, translation_y]])
-    translated_image = cv2.warpAffine(rotated_image, M, (new_w, new_h))
-
-    # 翻转图像
+    # calc the center
+    center = (w // 2, h // 2)
+    # get the matrix of rotate and scaled
+    M = cv2.getRotationMatrix2D(center, rotation, scale)
+    # add the translation param
+    M[:, 2] = M[:, 2]+[translation_x, translation_y]
+    transformed_image = cv2.warpAffine(image, M, (w, h), borderValue=(255, 255, 255))
+    # flip the image
     if flip_horizontal:
-        transformed_image = cv2.flip(translated_image, 1)
-    else:
-        transformed_image = translated_image
-    #transformed_image = scaled_image
+        transformed_image = cv2.flip(transformed_image, 1)
 
     return transformed_image
 

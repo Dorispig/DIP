@@ -47,8 +47,8 @@ def point_guided_deformation(image, source_pts, target_pts, alpha=1.0, eps=1e-8)
     ------
         A deformed image.
     """
-    #method = "MLS"
-    method = "RBF"
+    method = "MLS"
+    #method = "RBF"
     warped_image = np.array(image)
     print("image.shape:", image.shape)
     ### FILL: 基于MLS or RBF 实现 image warping
@@ -132,7 +132,7 @@ def point_guided_deformation(image, source_pts, target_pts, alpha=1.0, eps=1e-8)
         A[:n, 3:] = G - lamta * I
         A[:n, 1:3] = p_XY
         A[n+1:n+3, 3:] = p_XY.T
-        A[n:n+3, :3] = np.array([0, 0, 0])
+        A[n:n+3, :3] = 0
         xy = np.vstack((q_XY, np.array([[0, 0], [0, 0], [0, 0]])))
         ab, res, rank, s = np.linalg.lstsq(A, xy, rcond=None)
         for i in range(h):

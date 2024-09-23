@@ -1,8 +1,17 @@
 # 默认忽略的文件
 /shelf/
 /workspace.xml
-../homework/*/report/
+
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.log
 
 
+## Bibliography auxiliary files (bibtex/biblatex/biber):
+*.bbl
+*.blg
+
+## Build tool auxiliary files:
+*.synctex.gz
 #不忽略的文件
 !/report/*.pdf

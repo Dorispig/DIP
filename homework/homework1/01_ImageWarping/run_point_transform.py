@@ -66,9 +66,6 @@ def point_guided_deformation(image, source_pts, target_pts, alpha=1.0, eps=1e-8)
 #默认为恒等映射，U为x的映射矩阵，V为y的映射矩阵
     U = np.tile(np.arange(0, h), (w, 1)).T
     V = np.tile(np.arange(0, w), (h, 1))
-# 默认为全零映射，U为x的映射矩阵，V为y的映射矩阵
-    #U = np.zeros((h, w))
-    #V = np.zeros((h, w))
 
     # MLS实现
     if method == "MLS":
@@ -77,18 +74,6 @@ def point_guided_deformation(image, source_pts, target_pts, alpha=1.0, eps=1e-8)
         # 输入的控制点坐标为(y,x)形式，因此要做个交换
         [source_pts, target_pts] = [target_pts[:,[1,0]], source_pts[:,[1,0]]]
         #构造w_i的矩阵
-        '''W = np.array([[1 / (np.sum((source_pts - np.array([i, j])) ** (2 * alpha), axis=1) + eps)
-              for j in range(w)]
-             for i in range(h)])
-        print("W_shape:", W.shape)
-        W_sum = np.sum(W,axis=2)
-        P = np.array([[W[i][j].reshape(-1,1) * source_pts / W_sum[i][j]
-              for j in range(w)]
-             for i in range(h)])
-        print("P_shape:", P.shape)
-        Q = np.array([[W[i][j].reshape(-1, 1) * target_pts / W_sum[i][j]
-              for j in range(w)]
-             for i in range(h)])'''
         for i in range(h):
             for j in range(w):
                 v = np.array([i, j])# 1*2

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.2)  23 SEP 2024 18:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.2)  23 SEP 2024 22:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -876,148 +876,161 @@ TeX and DVIPDFMx (CTEX)
 e.sfd}) [1
 
 ] [2]
-<result/global/scale0_4.png, id=139, 924.95563pt x 477.785pt>
+Overfull \hbox (9.04088pt too wide) in paragraph at lines 77--78
+[]\OT1/cmr/m/n/10.53937 run[]point[]transformer\C70/rm/m/n/10.53937/8f Ð \C70/r
+m/m/n/10.53937/88 L \C70/rm/m/n/10.53937/65 ö \C70/rm/m/n/10.53937/53 ï \C70/rm
+/m/n/10.53937/4e å \C70/rm/m/n/10.53937/90 	 \C70/rm/m/n/10.53937/62 é\OT1/cmr/
+m/n/10.53937 MLS\C70/rm/m/n/10.53937/62 ^^V \C70/rm/m/n/10.53937/80 ^^E\OT1/cmr
+/m/n/10.53937 RBF|\C70/rm/m/n/10.53937/ff ^^L| \C70/rm/m/n/10.53937/57 ( \C70/r
+m/m/n/10.53937/4e ã \C70/rm/m/n/10.53937/78 ^^A \C70/rm/m/n/10.53937/7b ,\OT1/c
+mr/m/n/10.53937 50|\C70/rm/m/n/10.53937/ff ^^L| \OT1/cmr/m/n/10.53937 51\C70/rm
+/m/n/10.53937/88 L
+ []
+
+<result/global/scale0_4.png, id=141, 924.95563pt x 477.785pt>
 File: result/global/scale0_4.png Graphic file (type png)
 <use result/global/scale0_4.png>
-Package pdftex.def Info: result/global/scale0_4.png  used on input line 80.
+Package pdftex.def Info: result/global/scale0_4.png  used on input line 82.
 (pdftex.def)             Requested size: 369.9757pt x 191.11061pt.
 
-Overfull \hbox (24.9757pt too wide) in paragraph at lines 80--81
+Overfull \hbox (24.9757pt too wide) in paragraph at lines 82--83
  [][] 
  []
 
-<result/global/scale1_6.png, id=141, 932.48375pt x 482.30188pt>
+<result/global/scale1_6.png, id=143, 932.48375pt x 482.30188pt>
 File: result/global/scale1_6.png Graphic file (type png)
 <use result/global/scale1_6.png>
-Package pdftex.def Info: result/global/scale1_6.png  used on input line 86.
+Package pdftex.def Info: result/global/scale1_6.png  used on input line 88.
 (pdftex.def)             Requested size: 372.9869pt x 192.91733pt.
 
-Overfull \hbox (27.9869pt too wide) in paragraph at lines 86--87
+Overfull \hbox (27.9869pt too wide) in paragraph at lines 88--89
  [][] 
  []
 
-<result/global/rotate__66.png, id=142, 941.01563pt x 488.32437pt>
+<result/global/rotate__66.png, id=144, 941.01563pt x 488.32437pt>
 File: result/global/rotate__66.png Graphic file (type png)
 <use result/global/rotate__66.png>
-Package pdftex.def Info: result/global/rotate__66.png  used on input line 92.
+Package pdftex.def Info: result/global/rotate__66.png  used on input line 94.
 (pdftex.def)             Requested size: 376.39958pt x 195.32628pt.
 
-Overfull \hbox (31.39958pt too wide) in paragraph at lines 92--93
+Overfull \hbox (31.39958pt too wide) in paragraph at lines 94--95
  [][] 
  []
 
 [3 <./result/global/scale0_4.png>]
-<result/global/rotate_translationx.png, id=154, 934.99312pt x 486.81876pt>
+<result/global/rotate_translationx.png, id=160, 934.99312pt x 486.81876pt>
 File: result/global/rotate_translationx.png Graphic file (type png)
 <use result/global/rotate_translationx.png>
 Package pdftex.def Info: result/global/rotate_translationx.png  used on input l
-ine 98.
+ine 100.
 (pdftex.def)             Requested size: 373.99062pt x 194.72404pt.
 
-Overfull \hbox (28.99062pt too wide) in paragraph at lines 98--99
+Overfull \hbox (28.99062pt too wide) in paragraph at lines 100--101
  [][] 
  []
 
-<result/global/rotate_translationxy.png, id=155, 927.96687pt x 485.31313pt>
+<result/global/rotate_translationxy.png, id=161, 927.96687pt x 485.31313pt>
 File: result/global/rotate_translationxy.png Graphic file (type png)
 <use result/global/rotate_translationxy.png>
 Package pdftex.def Info: result/global/rotate_translationxy.png  used on input 
-line 104.
+line 106.
 (pdftex.def)             Requested size: 371.18018pt x 194.12181pt.
 
-Overfull \hbox (26.18018pt too wide) in paragraph at lines 104--105
+Overfull \hbox (26.18018pt too wide) in paragraph at lines 106--107
  [][] 
  []
 
 [4 <./result/global/scale1_6.png> <./result/global/rotate__66.png>]
-<result/point/MLS1.png, id=161, 764.8575pt x 522.95375pt>
+<result/point/MLS1.png, id=167, 764.8575pt x 522.95375pt>
 File: result/point/MLS1.png Graphic file (type png)
 <use result/point/MLS1.png>
-Package pdftex.def Info: result/point/MLS1.png  used on input line 113.
+Package pdftex.def Info: result/point/MLS1.png  used on input line 115.
 (pdftex.def)             Requested size: 305.93758pt x 209.1778pt.
-<result/point/MLS2.png, id=162, 775.39688pt x 519.9425pt>
+<result/point/MLS2.png, id=168, 775.39688pt x 519.9425pt>
 File: result/point/MLS2.png Graphic file (type png)
 <use result/point/MLS2.png>
-Package pdftex.def Info: result/point/MLS2.png  used on input line 119.
+Package pdftex.def Info: result/point/MLS2.png  used on input line 121.
 (pdftex.def)             Requested size: 310.15326pt x 207.97331pt.
  [5 <./result/global/rotate_translationx.png> <./result/global/rotate_translati
 onxy.png>]
-<result/point/MLS3.png, id=168, 764.8575pt x 518.43687pt>
+<result/point/MLS3.png, id=174, 764.8575pt x 518.43687pt>
 File: result/point/MLS3.png Graphic file (type png)
 <use result/point/MLS3.png>
-Package pdftex.def Info: result/point/MLS3.png  used on input line 125.
+Package pdftex.def Info: result/point/MLS3.png  used on input line 127.
 (pdftex.def)             Requested size: 305.93758pt x 207.37106pt.
 
 [6 <./result/point/MLS1.png> <./result/point/MLS2.png>]
-<result/point/RBF1.png, id=174, 768.37062pt x 519.9425pt>
+<result/point/RBF1.png, id=180, 768.37062pt x 519.9425pt>
 File: result/point/RBF1.png Graphic file (type png)
 <use result/point/RBF1.png>
-Package pdftex.def Info: result/point/RBF1.png  used on input line 132.
+Package pdftex.def Info: result/point/RBF1.png  used on input line 134.
 (pdftex.def)             Requested size: 307.3428pt x 207.97331pt.
-<result/point/RBF2.png, id=175, 775.89874pt x 519.44063pt>
+<result/point/RBF2.png, id=181, 775.89874pt x 519.44063pt>
 File: result/point/RBF2.png Graphic file (type png)
 <use result/point/RBF2.png>
-Package pdftex.def Info: result/point/RBF2.png  used on input line 138.
+Package pdftex.def Info: result/point/RBF2.png  used on input line 140.
 (pdftex.def)             Requested size: 310.354pt x 207.77257pt.
-<result/point/RBF3.png, id=176, 775.89874pt x 523.9575pt>
+<result/point/RBF3.png, id=182, 775.89874pt x 523.9575pt>
 File: result/point/RBF3.png Graphic file (type png)
 <use result/point/RBF3.png>
-Package pdftex.def Info: result/point/RBF3.png  used on input line 144.
+Package pdftex.def Info: result/point/RBF3.png  used on input line 146.
 (pdftex.def)             Requested size: 310.354pt x 209.57928pt.
  [7 <./result/point/MLS3.png> <./result/point/RBF1.png>] (./HW1report.bbl [8 <.
 /result/point/RBF2.png> <./result/point/RBF3.png>]) [9] (./HW1report.aux) ) 
 Here is how much of TeX's memory you used:
- 21424 strings out of 476025
- 442183 string characters out of 5794016
+ 21448 strings out of 476025
+ 442591 string characters out of 5794016
  1864382 words of memory out of 5000000
- 41272 multiletter control sequences out of 15000+600000
- 545457 words of font info for 153 fonts, out of 8000000 for 9000
+ 41288 multiletter control sequences out of 15000+600000
+ 546537 words of font info for 157 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,7n,104p,714b,350s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/
 Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.
 ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts
-/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windo
-ws/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><
-c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/sims
+/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windo
+ws/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><
+c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/sims
 un.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fo
 nts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Wi
 ndows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.tt
 c><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/s
-imsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows
+imsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows
 /Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:
-/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei
-.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Font
+/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun
+.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Font
 s/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Wind
-ows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc>
-<c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/sim
+ows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf>
+<c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/sim
 sun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/F
 onts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/W
 indows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.t
 tc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/
 simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Window
-s/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c
-:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsu
-n.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fon
+s/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c
+:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhe
+i.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fonts/simhei.ttf><c:/Windows/Fon
 ts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Win
-dows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/texlive/2023/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5
-.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/t
-exlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/202
-3/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2023/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2023/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.p
-fb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/te
-xlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on HW1report.pdf (9 pages, 16071176 bytes).
+dows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc
+><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/simsun.ttc><c:/Windows/Fonts/si
+msun.ttc><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
+<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texli
+ve/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2023/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2023/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr12.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pf
+b><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texli
+ve/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2023/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2023/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmti10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/a
+msfonts/symbols/msam10.pfb>
+Output written on HW1report.pdf (9 pages, 16085126 bytes).
 PDF statistics:
- 470 PDF objects out of 1000 (max. 8388607)
- 281 compressed objects within 3 object streams
+ 487 PDF objects out of 1000 (max. 8388607)
+ 293 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 280 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 284 words of extra memory for PDF output out of 10000 (max. 10000000)
 

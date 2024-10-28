@@ -9,6 +9,8 @@ from facades_dataset import FacadesDataset
 from FCN_network import FullyConvNetwork
 from torch.optim.lr_scheduler import StepLR
 
+# datasets = "facades"
+datasets = "cityscapes"
 def tensor_to_image(tensor):
     """
     Convert a PyTorch tensor to a NumPy array suitable for OpenCV.
@@ -83,7 +85,7 @@ def train_one_epoch(model, dataloader, optimizer, criterion, device, epoch, num_
 
         # Save sample images every 5 epochs
         if epoch % 5 == 0 and i == 0:
-            save_images(image_rgb, image_semantic, outputs, 'train_results', epoch)
+            save_images(image_rgb, image_semantic, outputs, 'train_results/'+datasets, epoch)
 
         # Compute the loss
         loss = criterion(outputs, image_semantic)
@@ -128,7 +130,7 @@ def validate(model, dataloader, criterion, device, epoch, num_epochs):
 
             # Save sample images every 5 epochs
             if epoch % 5 == 0 and i == 0:
-                save_images(image_rgb, image_semantic, outputs, 'val_results', epoch)
+                save_images(image_rgb, image_semantic, outputs, 'val_results/'+datasets, epoch)
 
     # Calculate average validation loss
     avg_val_loss = val_loss / len(dataloader)

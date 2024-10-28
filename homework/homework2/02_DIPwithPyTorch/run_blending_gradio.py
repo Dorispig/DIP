@@ -1,5 +1,5 @@
 import gradio as gr
-from PIL import ImageDraw,Image
+from PIL import ImageDraw, Image
 import numpy as np
 import torch
 import torch.nn as nn

@@ -1,6 +1,7 @@
 # 默认忽略的文件
 /shelf/
 /workspace.xml
+../homework/homework2/02_DIPwithPyTorch/result.md
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

@@ -4,7 +4,7 @@ This repository is the official implementation of [Assignment 2 - DIP with PyTor
 Include [Poisson Blending](https://github.com/YudongGuo/DIP-Teaching/tree/main/Assignments/02_DIPwithPyTorch) and [Pix2Pix](https://github.com/YudongGuo/DIP-Teaching/tree/main/Assignments/02_DIPwithPyTorch/Pix2Pix)
 ## 1.Poisson Blending
 This repository is the official implementation of [Poisson Blending](https://github.com/YudongGuo/DIP-Teaching/tree/main/Assignments/02_DIPwithPyTorch). 
->![鲨鱼](https://raw.githubusercontent.com/Dorispig/DIP/tree/main/homework/homework2/02_DIPwithPyTorch/result/water.png "鲨鱼")
+>![鲨鱼](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework2/02_DIPwithPyTorch/result/water.png "鲨鱼")
 
 ### Requirements
 
@@ -31,14 +31,14 @@ python run_blending_gradio.py
 ```
 And then click the link
 ### Results
-![蒙娜丽莎](https://raw.githubusercontent.com/Dorispig/DIP/tree/main/homework/homework2/02_DIPwithPyTorch/result/monalisa.png "蒙娜丽莎")
+![蒙娜丽莎](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework2/02_DIPwithPyTorch/result/monalisa.png "蒙娜丽莎")
 
 
 ## 2.Pix2Pix
 
 This repository is the official implementation of [Pix2Pix](https://github.com/YudongGuo/DIP-Teaching/tree/main/Assignments/02_DIPwithPyTorch/Pix2Pix). 
 
->![epoch250](https://raw.githubusercontent.com/Dorispig/DIP/tree/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/train_results/facades/epoch_250/result_3.png "epoch250_result3")
+>![epoch250](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/train_results/facades/epoch_250/result_3.png "epoch250_result3")
 
 ### Requirements
 
@@ -84,9 +84,9 @@ Our model achieves the following performance on :
 | FCN_network/250    |     0.16        |      0.39      |
 | FCN_network/795    |     0.11        |      0.40      |
 
->![epoch25](https://raw.githubusercontent.com/Dorispig/DIP/tree/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/val_results/facades/epoch_25/result_3.png "epoch25_result3")
-![epoch250](https://raw.githubusercontent.com/Dorispig/DIP/tree/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/val_results/facades/epoch_250/result_3.png "epoch250_result3")
-![epoch795](https://raw.githubusercontent.com/Dorispig/DIP/tree/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/val_results/facades/epoch_795/result_3.png "epoch795_result3")
+>![epoch25](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/val_results/facades/epoch_25/result_3.png "epoch25_result3")
+![epoch250](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/val_results/facades/epoch_250/result_3.png "epoch250_result3")
+![epoch795](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/val_results/facades/epoch_795/result_3.png "epoch795_result3")
 
 
 ### [cityscapes](http://efrosgans.eecs.berkeley.edu/pix2pix/datasets/cityscapes.tar.gz)
@@ -97,6 +97,6 @@ Our model achieves the following performance on :
 | FCN_network/250    |     0.0768        |      0.1355      |
 | FCN_network/795    |     0.0642        |      0.1367      |
 
->![epoch25](https://raw.githubusercontent.com/Dorispig/DIP/tree/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/val_results/cityscapes/epoch_25/result_2.png "epoch25_result2")
-![epoch250](https://raw.githubusercontent.com/Dorispig/DIP/tree/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/val_results/cityscapes/epoch_250/result_2.png "epoch250_result2")
-![epoch795](https://raw.githubusercontent.com/Dorispig/DIP/tree/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/val_results/cityscapes/epoch_795/result_2.png "epoch795_result2")
+>![epoch25](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/val_results/cityscapes/epoch_25/result_2.png "epoch25_result2")
+![epoch250](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/val_results/cityscapes/epoch_250/result_2.png "epoch250_result2")
+![epoch795](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/val_results/cityscapes/epoch_795/result_2.png "epoch795_result2")

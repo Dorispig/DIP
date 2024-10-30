@@ -148,21 +148,21 @@ def cal_laplacian_loss(foreground_img, foreground_mask, blended_img, background_
     ### FILL: Compute Laplacian Loss with https://pytorch.org/docs/stable/generated/torch.nn.functional.conv2d.html.
     ### Note: The loss is computed within the masks.
     laplacian_kernel = torch.tensor([
-        [0, 1, 0],
-        [1, -4, 1],
-        [0, 1, 0]
+        [0, -1, 0],
+        [-1, 4, -1],
+        [0, -1, 0]
     ], dtype=torch.float32)
     # 将核的形状调整为 [out_channels, in_channels, kernel_height, kernel_width]
     # 并复制到每个通道
-    laplacian_kernel = laplacian_kernel.view(1, 1, 3, 3).repeat(1, C, 1, 1)
+    laplacian_kernel = laplacian_kernel.view(1, 1, 3, 3)#.repeat(1, C, 1, 1)
     laplacian_kernel = laplacian_kernel.to(foreground_img.device)
 
-    laplacian_foreground_img = nn.functional.conv2d(foreground_img, laplacian_kernel, padding=1)
-    laplacian_blended_img = nn.functional.conv2d(blended_img, laplacian_kernel, padding=1)
-
-    foreground_mask_index = foreground_mask.bool()#.expand(1, -1, -1, -1)
-    background_mask_index = background_mask.bool()#.expand(1, -1, -1, -1)
-    loss = loss + torch.sum((laplacian_foreground_img[foreground_mask_index] - laplacian_blended_img[background_mask_index])**2)
+    laplacian_foreground_img = nn.functional.conv2d(foreground_img.permute(1,0,2,3), laplacian_kernel, padding=1)
+    laplacian_blended_img = nn.functional.conv2d(blended_img.permute(1,0,2,3), laplacian_kernel, padding=1)
+    foreground_mask_index = foreground_mask.bool().expand(3, -1, -1, -1)  # .expand(1, -1, -1, -1)
+    background_mask_index = background_mask.bool().expand(3, -1, -1, -1)  # .expand(1, -1, -1, -1)
+    #print(foreground_mask_index.shape)
+    loss = loss + torch.mean((laplacian_foreground_img[foreground_mask_index] - laplacian_blended_img[background_mask_index])**2)
     return loss
 
 # Perform Poisson image blending

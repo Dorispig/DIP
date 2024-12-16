@@ -57,6 +57,7 @@ This repository is the official implementation of [DragGAN](https://github.com/Y
 
 ### Results
 >![no-smile](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework3/draggan/result/demo.png)
+>![no-smile](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework3/draggan/result/demo.gif)
 <video width="320" height="240" controls>
-    <source src="https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework3/draggan/result/demo.mp4" title="demo.mp4"></video>"
+    <source src="https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework3/draggan/result/demo.mp4" title="demo.mp4" type="video/mp4">
 </video>

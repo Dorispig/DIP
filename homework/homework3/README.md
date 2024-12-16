@@ -56,12 +56,6 @@ python train.py
 This repository is the official implementation of [DragGAN](https://github.com/YudongGuo/DIP-Teaching/tree/main/Assignments/02_DIPwithPyTorch/Pix2Pix). 
 
 ### Results
+>![no-smile](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework3/draggan/resalt/demo.mp4)
 
-Our model achieves the following performance on :
-
-### [facades](http://efrosgans.eecs.berkeley.edu/pix2pix/datasets/facades.tar.gz)
-
->![epoch25](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/val_results/facades/epoch_25/result_3.png "epoch25_result3")
-![epoch250](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/val_results/facades/epoch_250/result_3.png "epoch250_result3")
-![epoch795](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework2/02_DIPwithPyTorch/Pix2Pix/val_results/facades/epoch_795/result_3.png "epoch795_result3")
 

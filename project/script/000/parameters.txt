@@ -1,0 +1,11 @@
+rendering.py中的参数：
+light 的intensity=50.0
+oc = pyrender.OrthographicCamera(xmag=0.2, ymag=0.2)
+
+camera_up=[0,1,0]
+theta=math.pi*0.6
+camera_position = [math.cos(theta),center[1],math.sin(theta)]
+
+camera_up=[0,0,1]
+theta=math.pi*0.6
+camera_position = [math.cos(theta),math.sin(theta),center[2]]

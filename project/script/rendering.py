@@ -5,6 +5,7 @@ import numpy as np
 import imageio
 import math
 import cv2
+from PIL import Image
 from scipy import ndimage
 
 # def load_pyrender_mesh(path, material):
@@ -62,10 +63,10 @@ def view_scene(scene):
     """
     # 用pyrender.Viewer()函数来可视化网格
     viewer_flags={'use_raymond_lighting':True}
-    # viewer = pyrender.Viewer(scene, viewer_flags=viewer_flags)
-    viewer = pyrender.Viewer(scene)
+    viewer = pyrender.Viewer(scene, viewer_flags=viewer_flags)
+    # viewer = pyrender.Viewer(scene)
 
-def save_view_fig(scene, path):
+def save_view_fig(scene, path, path_depth, path_normal):
     """
     保存场景当前视图
     Parameters
@@ -80,9 +81,45 @@ def save_view_fig(scene, path):
     # 创建离屏渲染器
     renderer = pyrender.OffscreenRenderer(512, 512)
     # 渲染场景
-    color, depth = renderer.render(scene)
+    flags = pyrender.RenderFlags.RGBA # | pyrender.RenderFlags.DEPTH_ONLY
+    color, _ = renderer.render(scene, flags=flags)#
+    print("color type:",type(color))
+    print(color.shape)
+    # 渲染深度图
+    depth = renderer.render(scene, flags=pyrender.RenderFlags.DEPTH_ONLY)
+    depth = np.exp(-depth)
+    print(depth)
+    d_min=np.min(depth)
+    print(d_min)
+    d_max=np.max(depth)
+    print(d_max)
+    depth[:,:] = 255 - 255 / (d_min - d_max) * (depth[:,:] - d_max)
+    # depth = depth.astype(np.uint8)
+    print(depth)
+    d_min = np.min(depth)
+    print(d_min)
+    d_max = np.max(depth)
+    print(d_max)
+    print("depth type:",type(depth))
+    print(depth.shape)
+    # 渲染法向图
+    normal, _ = renderer.render(scene, flags=pyrender.RenderFlags.VERTEX_NORMALS)
+    normal = (normal+1)/2
+    normal = (normal*255).astype(np.uint8)
+    # normal_PIL = Image.fromarray(normal)
+    # normal_PIL.save(path_normal)
+    normal = cv2.cvtColor(normal, cv2.COLOR_LAB2BGR)
+    n_min=np.min(normal)
+    n_max=np.max(normal)
+    # normal = 255+255/2*(normal-1)
+    print(np.min(normal))
+    print(np.max(normal))
+    print("normal type:", type(normal))
+    print("normal shape:",normal.shape)
     # 保存渲染结果
     imageio.imwrite(path, (color * 255).astype(np.uint8))
+    imageio.imwrite(path_depth, (depth * 255).astype(np.uint8))
+    imageio.imwrite(path_normal, (normal).astype(np.uint8))
 
 def generate_symmetric_view_scenes(pyrender_mesh, center, path_front, path_back, camera_node, camera_pose, light_type, light_pose):
     """
@@ -104,7 +141,7 @@ def generate_symmetric_view_scenes(pyrender_mesh, center, path_front, path_back,
     """
     scene_front_init = generate_scene(pyrender_mesh, light_type, light_pose)
     scene_front = scene_add_camera(scene_front_init, camera_node, camera_pose)
-    save_view_fig(scene_front,path_front)
+    save_view_fig(scene_front,path_front,"000/depth_front.png","000/normal_front.png")
 
     scene_back_init = generate_scene(pyrender_mesh, light_type, light_pose)
     position_front_camera = camera_pose[:3, 3]
@@ -114,9 +151,9 @@ def generate_symmetric_view_scenes(pyrender_mesh, center, path_front, path_back,
     camera_pose_symmetric[:3, 0] = -camera_pose[:3, 0]
     camera_pose_symmetric[:3, 2] = -camera_pose[:3, 2]
     scene_back = scene_add_camera(scene_back_init, camera_node, camera_pose)
-    save_view_fig(scene_back, path_back)
+    save_view_fig(scene_back, path_back, "000/depth_back.png", "000/normal_back.png")
 
-def save_2image_hstack(path1,path2,path3):
+def save_2image_hstack(path1, path2, path3):
     """
         将前两张图像横向拼接并保存
     Parameters
@@ -190,7 +227,7 @@ def mask_expansion(mask_image,mask_range=16):
 
     return mask_dilate_uint8
 
-file = "007"
+file = "000"
 tri_mesh = trimesh.load(file+".glb", force='mesh')
 # print("uv:\n",tri_mesh.)
 vertices = np.array(tri_mesh.vertices)
@@ -200,19 +237,33 @@ max_values=np.max(vertices,axis=0)
 center = (min_values+max_values)/2
 print(center)
 # 创建一个白色的材质，RGBA值为[1, 1, 1, 1]
-material = pyrender.MetallicRoughnessMaterial(baseColorFactor=[1, 1, 1, 1])
-pyrender_mesh = pyrender.Mesh.from_trimesh(tri_mesh, material=material)
+material = pyrender.MetallicRoughnessMaterial(
+    baseColorFactor=[1, 1, 1, 1]
+)
+# material = pyrender.MetallicRoughnessMaterial()
+    # metallicFactor=0.,  # 金属度，范围从0（非金属）到1（金属）
+    # roughnessFactor=0.,  # 粗糙度，范围从0（光滑）到1（粗糙）
+pyrender_mesh = pyrender.Mesh.from_trimesh(tri_mesh, material=material)#
+positions=pyrender_mesh.primitives[0].positions
+print("位置坐标",pyrender_mesh.primitives[0].positions)
+print(positions.shape)
+print(positions.shape[0])
+print("纹理坐标",pyrender_mesh.primitives[0].texcoord_0)
+print("法向信息",pyrender_mesh.primitives[0].normals)
+norms=pyrender_mesh.primitives[0].normals
 
+for primitive in pyrender_mesh.primitives:
+    print("材质:",primitive.material)
 # 创建一个正交相机
-oc = pyrender.OrthographicCamera(xmag=10, ymag=10)
+oc = pyrender.OrthographicCamera(xmag=0.2, ymag=0.2)
 # 创建一个相机节点
 camera_node = pyrender.Node(camera=oc)
 # camera_pose：前三行的前三列分别表示相机坐标系的x,y,z坐标轴在世界坐标系下的方向，最后一列表示相机位置，最后一行始终是0001，
 # 相机朝向：相机坐标系的z坐标轴在世界坐标系下的方向的反方向
 # 000
-# camera_up=[0,1,0]
-# theta=math.pi*0.5
-# camera_position = [math.cos(theta), 0, math.sin(theta)]
+camera_up=[0,1,0]
+theta=math.pi*0.5
+camera_position = [math.cos(theta), 0, math.sin(theta)]
 
 #001
 # camera_up=[0,0,1]
@@ -241,26 +292,26 @@ camera_node = pyrender.Node(camera=oc)
 # camera_position = [10*math.cos(theta), 10, 10*math.sin(theta)]
 
 # 007
-camera_up=[0,1,0]
-theta=math.pi*1
-camera_position = [20*math.cos(theta), 7, 20*math.sin(theta)]
+# camera_up=[0,1,0]
+# theta=math.pi*1
+# camera_position = [20*math.cos(theta), 7, 20*math.sin(theta)]
 
 
 camera_pose = np.eye(4)
 camera_pose[:3, 3] = camera_position
-camera_direction = center-camera_position
+camera_direction = center - camera_position
 camera_direction=camera_direction/np.linalg.norm(camera_direction)#归一化
 camera_pose[:3, 2] = -camera_direction # 这里要和相机方向相反
 camera_right = np.cross(camera_direction, camera_up)#生成第三个轴
 camera_pose[:3, 0] = camera_right / np.linalg.norm(camera_right)# 归一化
 
 camera_pose[:3, 1] = camera_up
-print("camera_pose:\n",camera_pose)
+# print("camera_pose:\n",camera_pose)
 
 light_type=[]
 light_pose=[]
 
-position_light1 = [10, 10, 10]
+position_light1 = [1, 1, 1]
 light1 = pyrender.PointLight(color=[1.0, 1.0, 1.0], intensity=100.0)
 light1_pose = np.eye(4)
 light1_up=[0,1,0]
@@ -270,7 +321,7 @@ light1_pose[:3,2]=-light1_direction
 light1_pose[:3,1]=light1_up
 light1_right=np.cross(light1_direction,light1_up)
 light1_pose[:3,0]=light1_right/np.linalg.norm(light1_right)
-print("light1_pose\n",light1_pose)
+# print("light1_pose\n",light1_pose)
 light_type.append(light1)
 light_pose.append(light1_pose)
 
@@ -281,14 +332,17 @@ light2_pose = np.eye(4)
 light2_pose[:3, 0] = -light1_pose[:3, 0]
 light2_pose[:3, 2] = -light1_pose[:3, 2]
 light2_pose[:3, 3] = position_light2
-print("light2_pose\n",light2_pose)
+# print("light2_pose\n",light2_pose)
 light_type.append(light2)
 light_pose.append(light2_pose)
 
 scene = generate_scene(pyrender_mesh, light_type, light_pose)
 scene = scene_add_camera(scene, camera_node, camera_pose)
 # save_view_fig(scene,'rendered_image.png')
+
 view_scene(scene)
+
+
 path_front = file+"/"+"view_front.png"
 path_back = file+"/"+"view_back.png"
 generate_symmetric_view_scenes(pyrender_mesh, center, path_front, path_back, camera_node, camera_pose, light_type, light_pose)
@@ -296,3 +350,13 @@ path_stack = file+"/"+"view_symmetric.png"
 save_2image_hstack(path_front, path_back, path_stack)
 path_mask = file+"/"+"view_mask.png"
 generate_and_save_mask(path_stack, path_mask)
+
+path_front = file+"/"+"depth_front.png"
+path_back = file+"/"+"depth_back.png"
+path_stack = file+"/"+"depth_symmetric.png"
+save_2image_hstack(path_front, path_back, path_stack)
+
+path_front = file+"/"+"normal_front.png"
+path_back = file+"/"+"normal_back.png"
+path_stack = file+"/"+"normal_symmetric.png"
+save_2image_hstack(path_front, path_back, path_stack)

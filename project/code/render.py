@@ -213,7 +213,7 @@ def tex_Mask(s: Myscene, I, T_star, mask_range=16):
     #             alpha[i][j] = 1
     # # 纹理掩码，无纹理区域设置为1
     # alpha = alpha.T
-    tex_mask = mask * alpha
+    tex_mask = mask #* alpha
     alpha = (alpha * 255).astype(np.uint8)
 
     # tex_mask = mask

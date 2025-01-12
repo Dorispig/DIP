@@ -5,6 +5,8 @@ import pyrender
 import numpy as np
 import math
 import os
+from PIL import Image
+import trimesh
 
 # 在服务器中跑要用下面代码
 # os.environ['PYOPENGL_PLATFORM'] = 'egl'
@@ -16,7 +18,13 @@ path = file + '.glb'
 tri_mesh = render.read_glb_mesh(path)
 center = render.cal_trimesh_center(tri_mesh = tri_mesh)
 pyrender_mesh = pyrender.Mesh.from_trimesh(tri_mesh)
-init_pyrender_mesh = pyrender.Mesh.from_trimesh(tri_mesh)
+import copy
+# 创建一个新的trimesh对象作为副本
+tri_mesh_copy = copy.deepcopy(tri_mesh)
+# 从副本创建一个新的pyrender.Mesh对象
+init_pyrender_mesh = pyrender.Mesh.from_trimesh(tri_mesh_copy)
+# init_pyrender_mesh = pyrender.Mesh.from_trimesh(tri_mesh)
+
 # 初始化pyrender_mesh网格
 h, w = 1024, 1024
 init_texture = np.zeros((h, w, 4))
@@ -134,29 +142,29 @@ for epoch in range(iter):
     # render.save_image(T_star, 'T_star.png', file, epoch)
     # render.save_image(C_star, 'C_star.png', file, epoch)
 
-    T_star[:, :, 0] = (T_star[:, :, 0] * (C_star[:,:] / 255) + Ti[:, :, 0] * (Ci[:,:]/255)) / ((C_star[:,:] / 255) + (Ci[:,:]/255) + epsilon)
-    T_star[:, :, 1] = (T_star[:, :, 1] * (C_star[:,:] / 255) + Ti[:, :, 1] * (Ci[:,:]/255)) / ((C_star[:,:] / 255) + (Ci[:,:]/255) + epsilon)
-    T_star[:, :, 2] = (T_star[:, :, 2] * (C_star[:,:] / 255) + Ti[:, :, 2] * (Ci[:,:]/255)) / ((C_star[:,:] / 255) + (Ci[:,:]/255) + epsilon)
+    T_star[:, :, 0] = (T_star[:, :, 0] * (C_star[:,:]) + Ti[:, :, 0] * (Ci[:,:]/255)) / ((C_star[:,:]) + (Ci[:,:]/255) + epsilon)
+    T_star[:, :, 1] = (T_star[:, :, 1] * (C_star[:,:]) + Ti[:, :, 1] * (Ci[:,:]/255)) / ((C_star[:,:]) + (Ci[:,:]/255) + epsilon)
+    T_star[:, :, 2] = (T_star[:, :, 2] * (C_star[:,:]) + Ti[:, :, 2] * (Ci[:,:]/255)) / ((C_star[:,:]) + (Ci[:,:]/255) + epsilon)
     # T_star[:, :, 3] = (T_star[:, :, 3] * C_star + Ti[:, :, 3] * Ci) / (C_star + Ci + epsilon)
 
-    C_star = C_star + Ci - C_star * Ci
-    # C_star = C_star.astype(np.uint8)
+    C_star[:,:] = C_star[:,:] + (Ci[:,:]/255) - (C_star[:,:]) * (Ci[:,:]/255)
+    # C_star = (C_star*255).astype(np.uint8)
     # T_star = T_star.astype(np.uint8)
     # render.save_image(T_star, 'T_star0.png', file, epoch)
     # render.save_image(C_star, 'C_star0.png', file, epoch)
 
-    T_star[:, :, 0] = (T_star[:, :, 0] * (C_star[:,:] / 255) + Tj[:, :, 0] * (Cj[:,:]/255)) / ((C_star[:,:] / 255) + (Cj[:,:]/255) + epsilon)
-    T_star[:, :, 1] = (T_star[:, :, 1] * (C_star[:,:] / 255) + Tj[:, :, 1] * (Cj[:,:]/255)) / ((C_star[:,:] / 255) + (Cj[:,:]/255) + epsilon)
-    T_star[:, :, 2] = (T_star[:, :, 2] * (C_star[:,:] / 255) + Tj[:, :, 2] * (Cj[:,:]/255)) / ((C_star[:,:] / 255) + (Cj[:,:]/255) + epsilon)
+    T_star[:, :, 0] = (T_star[:, :, 0] * (C_star[:,:] ) + Tj[:, :, 0] * (Cj[:,:]/255)) / ((C_star[:,:] ) + (Cj[:,:]/255) + epsilon)
+    T_star[:, :, 1] = (T_star[:, :, 1] * (C_star[:,:] ) + Tj[:, :, 1] * (Cj[:,:]/255)) / ((C_star[:,:] ) + (Cj[:,:]/255) + epsilon)
+    T_star[:, :, 2] = (T_star[:, :, 2] * (C_star[:,:]) + Tj[:, :, 2] * (Cj[:,:]/255)) / ((C_star[:,:] ) + (Cj[:,:]/255) + epsilon)
     # T_star[:, :, 3] = (T_star[:, :, 3] * C_star + Tj[:, :, 3] * Cj) / (C_star + Cj + epsilon)
 
 
-    C_star = C_star + Cj - C_star * Cj
+    C_star[:,:] = C_star[:,:] + Cj[:,:]/255 - (C_star[:,:]) * (Cj[:,:]/255)
 
-    C_star = C_star.astype(np.uint8)
+    # C_star = (C_star*255).astype(np.uint8)
     T_star = T_star.astype(np.uint8)
     render.save_image(T_star, 'T_star1.png', file, epoch)
-    render.save_image(C_star, 'C_star1.png', file, epoch)
+    render.save_image((C_star*255).astype(np.uint8), 'C_star1.png', file, epoch)
 
     T_new = T_star.copy()
     T_new[..., 0] = np.flipud(T_new[..., 0].T)
@@ -171,3 +179,49 @@ render.add_light(scene,light34_type,light3_pose)
 render.add_light(scene,light34_type,light4_pose)
 # render.add_camera(scene,camera_node,camera1_pose)
 pyrender.Viewer(scene)
+
+
+# 下面保存为可视化文件
+material = pyrender_mesh.primitives[0].material
+texture = material.baseColorTexture
+texture_data = (texture.source).astype(np.uint8)  # 确保纹理数据是 uint8 类型
+texture_image = Image.fromarray(texture_data)
+texture_image.save('texture.png')
+mtl_content = f"""
+newmtl texture
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Tr 1.000000
+illum 2
+map_Kd texture.png
+"""
+
+# 保存 MTL 文件
+with open('texture.mtl', 'w') as f:
+    f.write(mtl_content)
+
+# 保存 OBJ 文件
+tri_mesh.export('mesh.obj')
+
+# 将 MTL 文件路径添加到 OBJ 文件
+with open('mesh.obj', 'r+') as f:
+    content = f.read()
+    f.seek(0, 0)
+    f.write('mtllib texture.mtl\n')
+    f.write(content)
+# 修改obj文件用的纹理图
+with open('mesh.obj', 'r') as file:
+    lines = file.readlines()
+
+# 替换usemtl声明
+new_lines = []
+for line in lines:
+    if line.startswith('usemtl'):
+        new_lines.append('usemtl texture\n')
+    else:
+        new_lines.append(line)
+
+# 保存更改回OBJ文件
+with open('mesh.obj', 'w') as file:
+    file.writelines(new_lines)

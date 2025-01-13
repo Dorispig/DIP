@@ -26,36 +26,39 @@ The above chair can be replaced with the lego dataset
 Both datasets converge after 150 epochs, and the results of the 0th, 50th, 100th, and 150th epochs are shown below.
 ### chair
 #### ours
->![epoch0](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/chair/checkpoints/epoch_0000/r_4.png "epoch0")
-![epoch50](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/chair/checkpoints/epoch_0050/r_4.png "epoch50")
-![epoch100](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/chair/checkpoints/epoch_0100/r_4.png "epoch100")
-![epoch150](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/chair/checkpoints/epoch_0150/r_4.png "epoch150")
+>![epoch0](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/chair/checkpoints/debug_images/epoch_0000/r_47.png "epoch0")
+![epoch50](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/chair/checkpoints/debug_images/epoch_0050/r_47.png "epoch50")
+![epoch100](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/chair/checkpoints/debug_images/epoch_0100/r_47.png "epoch100")
+![epoch150](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/chair/checkpoints/debug_images/epoch_0150/r_47.png "epoch150")
 
-loss = 
+![chair](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/chair/checkpoints/debug_images/debug_rendering.mp4 "chair")
+
+loss = 0.0254
 
 #### Original Gauss
 <table>
   <tr>
     <td><img src="https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/origin_gaussian/chair/ours_30000/gt/00006.png" alt="chair00006" style="width:100%"></td>
-    <td><img src="https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/origin_gaussian/chair/ours_30000/render/00006.png" alt="chair00006 render" style="width:100%"></td>
+    <td><img src="https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/origin_gaussian/chair/ours_30000/renders/00006.png" alt="chair00006 render" style="width:100%"></td>
   </tr>
 </table>
 loss = 0.0054
 
-### chair
+### lego
 #### ours
->![epoch0](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/lego/checkpoints/epoch_0000/r_4.png "epoch0")
-![epoch50](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/lego/checkpoints/epoch_0050/r_4.png "epoch50")
-![epoch100](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/lego/checkpoints/epoch_0100/r_4.png "epoch100")
-![epoch150](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/lego/checkpoints/epoch_0150/r_4.png "epoch150")
+>![epoch0](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/lego/checkpoints/debug_images/epoch_0000/r_85.png "epoch0")
+![epoch50](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/lego/checkpoints/debug_images/epoch_0050/r_85.png "epoch50")
+![epoch100](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/lego/checkpoints/debug_images/epoch_0100/r_85.png "epoch100")
+![epoch150](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/lego/checkpoints/debug_images/epoch_0150/r_85.png "epoch150")
 
-loss = 
+![lego](https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/04_3DGS/data/lego/checkpoints/debug_images/debug_rendering.mp4 "lego")
+loss = 0.0335
 
 #### Original Gauss
 <table>
   <tr>
     <td><img src="https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/origin_gaussian/lego/ours_30000/gt/00006.png" alt="lego00006" style="width:100%"></td>
-    <td><img src="https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/origin_gaussian/lego/ours_30000/render/00006.png" alt="lego00006 render" style="width:100%"></td>
+    <td><img src="https://raw.githubusercontent.com/Dorispig/DIP/refs/heads/main/homework/homework4/origin_gaussian/lego/ours_30000/renders/00006.png" alt="lego00006 render" style="width:100%"></td>
   </tr>
 </table>
 loss = 0.0134
